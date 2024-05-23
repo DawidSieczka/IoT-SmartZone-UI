@@ -1,22 +1,28 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './modules/welcome/welcome.component';
-import { NavbarComponent } from './modules/navbar/navbar.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     {
-        path:'',
-        children:[
+        path: '',
+        children: [
             {
-              path:'',
-              redirectTo:'welcome',
-              pathMatch:'full'
+                path: '',
+                redirectTo: 'welcome',
+                pathMatch: 'full'
             },
             {
-                path:'welcome',
+                path: 'welcome',
                 pathMatch: 'full',
                 component: WelcomeComponent,
-                loadChildren: ()=> import('./modules/welcome/welcome.module').then(m => m.WelcomeModule)
+                loadChildren: () => import('./modules/welcome/welcome.module').then(m => m.WelcomeModule)
             }
         ]
     }
 ];
+@NgModule({
+    providers: [],
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }
