@@ -10,5 +10,9 @@
   justify-content: center;
   align-items: center;
   height: 50vh; /* Przykładowa wysokość dla drugiego div'a */
-  background-color: #f0f0f0; /* Przykładowy kolor tła */
+  background-color: #000000; /* Przykładowy kolor tła */
+}
+
+all {
+  background-color: rgb(13, 60, 247, 0.2);
 }
